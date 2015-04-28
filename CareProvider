@@ -10,7 +10,7 @@ Scenario:User logs in , select new button option in front of care providers
   Then new page opens
   
   Scenario :The user enters information for creating a new care provider
-  Given : The user is logged into https://evolve.cipherjedi.com/care_providers/new
+  Given : The user logs into https://evolve.cipherjedi.com/care_providers/new
   And the user fills "Name" with "test care provider"
   And the user fills "Account Manager email" with "sahilp+127@ohumhealthcare.com"
   And the user fills "Sales lead email" with "sahilp+122@ohumhealthcare.com"
