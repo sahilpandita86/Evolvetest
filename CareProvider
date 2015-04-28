@@ -1,3 +1,4 @@
+@test_script
 Feature:checking whether user is able to create a new care provider
 
 Background:
