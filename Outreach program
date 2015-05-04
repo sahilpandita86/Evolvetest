@@ -1,0 +1,33 @@
+Feature:checking whether user is able to create a new outreach program
+
+Background:
+    Given I visit "https://evolve.cipherjedi.com/"
+    Given I press "Login"
+    And I fill in "Email" with "admin@g.com"
+    And I fill in "Password" with "super mario"
+    And I press "Login"
+    And I wait for 2 seconds
+
+  Scenario: User logs in, selects setting button, selects outreach program from the list
+    Given I visit "https://evolve.cipherjedi.com/care_providers/520b9fed677aff2618000073/outreach_programs"
+    Then I should see "Outreach Programs"
+    And I should see "Search programs"
+
+  Scenario: The user enters information for creating a new care provider
+    Given I visit "https://evolve.cipherjedi.com/care_providers/520b9fed677aff2618000073/outreach_programs/new"
+    And I fill in "Name" with "Test" and current date timestamp
+    And I fill in "Short Name" with "Test1"
+    And I fill in "Type" with "ER"
+    And I fill in "Voice Talent" with "Any"
+    And I select "Option 1"
+    And I fill in "Phone" with "1234567890"
+    And I fill in "Allowable Call Times" with "2"
+    And I fill in "Max Early Hangups" with "4"
+    And I fill in "Priority" with "Medium"
+    And I fill in "Voice Tries" with "4"
+    When I press "Save"
+    Then I should see "Test was successfully created"
+    And I shoudld see "Outreach Actions"
+    And I should see "Activation criteria"
+    And I shoudl see "Call Hours"
+    And I should see "Sales/Invoicing"
