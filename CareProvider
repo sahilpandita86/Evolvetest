@@ -1,20 +1,27 @@
 Feature:checking whether user is able to create a new care provider
 
 Background:
-    Given the user logs into https://evolve.cipherjedi.com/care_providers
-    
-Scenario:User logs in , select new button option in front of care providers
-  Given:The user logs into https://evolve.cipherjedi.com/care_providers
-  And selects "New" option
-  When the user taps on "New"option
-  Then new page opens
-  
-  Scenario :The user enters information for creating a new care provider
-  Given : The user logs into https://evolve.cipherjedi.com/care_providers/new
-  And the user fills "Name" with "test care provider"
-  And the user fills "Account Manager email" with "sahilp+127@ohumhealthcare.com"
-  And the user fills "Sales lead email" with "sahilp+122@ohumhealthcare.com"
-  And the user fils "care provider system" with "Test"
-  When the user clicks "Create care provider" 
-  And waits for 2 seconds
-  Then New care provider should be created
+    Given I visit "https://evolve.cipherjedi.com/"
+    Given I press "Login"
+    And I fill in "Email" with "admin@g.com"
+    And I fill in "Password" with "super mario"
+    And I press "Login"
+    And I wait for 2 seconds
+
+  Scenario: User logs in, select new button option in front of care providers
+    Given I visit "https://evolve.cipherjedi.com/care_providers"
+    When I click the new care provider button
+    Then I should see "New Care Provider"
+    And I should not see the new care provider button
+
+  Scenario: The user enters information for creating a new care provider
+    Given I visit "https://evolve.cipherjedi.com/care_providers/new"
+    And I fill in "Name" with "test care provider" and current date timestamp
+    And I fill in "Account manager email" with "sahilp+002@ohumhealthcare.com"
+    And I fill in "Sales lead email" with "sahilp+002@ohumhealthcare.com"
+    And I fill in "Care provider system" with "Test"
+    When I press "Create Care Provider"
+    Then I should see "Care Provider was successfully created."
+    Then I should see "Provider Settings"
+    Then I should see "Nametest care provider"
+    Then I should see "Units"
