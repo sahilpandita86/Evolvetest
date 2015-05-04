@@ -1,0 +1,28 @@
+Feature:Creating a new outreach action
+
+Background:
+    Given I visit "https://evolve.cipherjedi.com/"
+    Given I press "Login"
+    And I fill in "Email" with "admin@g.com"
+    And I fill in "Password" with "super mario"
+    And I press "Login"
+    And I wait for 2 seconds
+
+  Scenario: User logs in, creates a new outreach program and then selects an outreach program
+    Given I visit "https://evolve.cipherjedi.com/care_providers/520b9fed677aff2618000073/outreach_programs/5547375a64656d655c290100"
+    When I click the New Action button
+    Then I should see "New outreach action"
+    And I should see New outreach action button
+
+  Scenario: The user enters information for creating a new outreach action
+    Given I visit "https://evolve.cipherjedi.com/care_providers/520b9fed677aff2618000073/outreach_programs/5547375a64656d655c290100/outreach_actions/new"
+    And I fill in "Type" with "Voice Call"
+    And I fill in "Target Outreach Discharge Plus" with "3"
+    And I fill in "I'm sorry message" with "Hello"
+    And I fill in "Voice mail message" with "Hello"
+    And I fill in "Closing message" with "Hello"
+    When I press the Create Outreach Action button
+    Then I should see "Voice Call 1 was successfully created"
+    Then I should see "Voice Call 1 for Test program"
+    Then I should see "New Action"
+    Then I should see "Back to program"
