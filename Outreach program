@@ -30,4 +30,4 @@ Background:
     Then I should see "Outreach Actions"
     Then I should see "Activation criteria"
     Then I should see "Call Hours"
-    And I should see "Sales/Invoicing"
+    Then I should see "Sales/Invoicing"
