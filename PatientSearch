@@ -1,0 +1,16 @@
+Feature:Patient search
+
+Background:
+    Given I visit "https://evolve.cipherjedi.com/"
+    Given I press "Login"
+    And I fill in "Email" with "admin@g.com"
+    And I fill in "Password" with "super mario"
+    And I press "Login"
+    And I wait for 2 seconds
+
+  Scenario: User logs in, selects search option, patients and then searches a patient
+    Given I visit "https://evolve.cipherjedi.com/care_providers/520b9fed677aff2618000073/patients/search"
+    When I fill in "Search patients" with "Test"
+    And I hit Enter
+    Then I should see " Clear current search query and filters"
+    And I should see "last_name:Test"
