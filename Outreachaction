@@ -1,4 +1,4 @@
-Feature:Creating a new outreach action
+Feature:Creating a new outreach action and adding an activation criteria
 
 Background:
     Given I visit "https://evolve.cipherjedi.com/"
@@ -26,3 +26,15 @@ Background:
     Then I should see "Voice Call 1 for Test program"
     Then I should see "New Action"
     Then I should see "Back to program"
+    
+Scenario :User adds questions to outreach actions
+    Given I visit "https://evolve.cipherjedi.com/care_providers/5538a04d64656d21fadf0200/outreach_programs/5548be1664656d4e08000000/outreach_actions/5548bf4664656d4df2090000/new_question"
+    And I fill in "" with ""
+    And I fill in "Short Name" with "Que1"
+    And I fill in "Question" with "Hello how are you?"
+    
+    
+    
+    
+    
+    
